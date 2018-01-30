@@ -1,0 +1,7 @@
+MoonPhaseIntent moon
+MoonPhaseIntent phase
+MoonPhaseIntent moon phase
+MoonPhaseIntent what is the moon phase
+MoonPhaseIntent what is the phase
+MoonPhaseIntent whats the moon phase
+MoonPhaseIntent whats the phase

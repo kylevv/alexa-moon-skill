@@ -1,0 +1,33 @@
+{
+  "name": "alexa-moon-skill",
+  "version": "1.0.0",
+  "description": "Ask Alexa for moon phase",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -f *.zip",
+    "zip": "zip -r -q $npm_package_name.zip . -x \"speech-assets*\" -x \"*.md\" -x \"*.git*\"",
+    "build": "npm run clean && npm run zip",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kylevv/alexa-moon-phase.git"
+  },
+  "keywords": [
+    "alexa",
+    "moon"
+  ],
+  "author": "kylevv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kylevv/alexa-moon-phase/issues"
+  },
+  "homepage": "https://github.com/kylevv/alexa-moon-phase#readme",
+  "devDependencies": {
+    "alexa-sdk": "^1.0.25"
+  },
+  "dependencies": {
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5"
+  }
+}
