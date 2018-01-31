@@ -1,6 +1,12 @@
 'use strict'
 const Alexa = require('alexa-sdk')
 const fetchMoonData = require('./src/fetch-moon-data')
+const phases = {
+  'New Moon': '100%',
+  'First Quarter': '50%',
+  'Full Moon': '100%',
+  'Last Quarter': '50%'
+}
 
 exports.handler = function (event, context, callback) {
   const alexa = Alexa.handler(event, context)
@@ -18,7 +24,10 @@ const handlers = {
   'DescribeMoon': function () {
     fetchMoonData()
       .then((data) => {
-        this.response.speak(`The current moon phase is a ${data.curphase} at ${data.fracillum} full`)
+        if (!data || data.error) return Promise.reject(new Error('API returned an error'))
+        const phase = data.curphase || data.closestphase.phase
+        const fracillum = data.fracillum || phases[data.closestphase.phase]
+        this.response.speak(`The current moon phase is a ${phase} at ${fracillum} full`)
       })
       .catch(() => {
         this.response.speak('Sorry, I couldn\'t retrieve the information')

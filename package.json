@@ -1,12 +1,13 @@
 {
   "name": "alexa-moon-skill",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ask Alexa for moon phase",
   "main": "index.js",
   "scripts": {
+    "lint": "standard",
     "clean": "rm -f *.zip",
     "zip": "zip -r -q $npm_package_name.zip . -x \"speech-assets*\" -x \"*.md\" -x \"*.git*\"",
-    "build": "npm run clean && npm run zip",
+    "build": "npm run lint && npm run clean && npm run zip",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
